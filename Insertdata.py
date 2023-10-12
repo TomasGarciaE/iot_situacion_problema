@@ -15,10 +15,10 @@ def insert_data():
         current_datetime = datetime.now()
 
         # Connect to the database
-        cnx, cursor = createConnection('sql10651049', 'sql10651049', 'RLBImUx77k', 'sql10.freemysqlhosting.net', '3306')
+        cnx, cursor = createConnection('sql10652552', 'sql10652552', 'XkZv5BfYiG', 'sql10.freemysqlhosting.net', '3306')
 
         # Insert data into the table
-        query = "INSERT INTO dht_sensor_data (humidity, temperature, date_time) VALUES (%s, %s, %s)"
+        query = "INSERT INTO dht_sensor_data (humidity, temperature, date_time, gas_value) VALUES (%s, %s, %s, %s)"
         data = (humidity, temperature, current_datetime)
 
         cursor.execute(query, data)
@@ -38,8 +38,3 @@ def insert_data():
         if ('cnx' in locals() or 'cnx' in globals()) and ('cursor' in locals() or 'cursor' in globals()):
             cnx.close()
             cursor.close()
-
-if __name__ == '__main__':
-    # Insert 100 data points into the table
-    for _ in range(100):
-        insert_data()
